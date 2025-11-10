@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Supplies Store</title>
+    <link rel="stylesheet" href="../Css/style.css">
+</head>
+<body>
+    <div class="holder">
+        
+        <div class="topBar">
+            <div class="logo">
+                <div class="logoIcon">
+                    <img src="../images/logo-removebg-preview.png" alt="Logo" class="logoImage">
+                </div>
+          
+            </div>
+            <button class="cartBtn" onclick="toggleCart()">
+             Cart (<span id="cartCount">0</span>)
+            </button>
+        </div>
+
+       
+        <div class="FormHolder">
+            <input type="text" id="searchInput" placeholder="Search products..." class="searchInput" onkeyup="filterProducts()">
+            <div class="filterSection">
+                <label>Filter by Category:</label>
+                <div class="categoryFilter" id="categoryFilter"></div>
+            </div>
+        </div>
+
+     
+        <div class="itemHolders">
+            <div class="labels">
+                <h2>Available Products</h2>
+            </div>
+            <div class="items" id="productsGrid">
+              
+            </div>
+        </div>
+    </div>
+
+
+    <div id="cartModal" class="cartModal hidden">
+        <div class="cartContent">
+            <div class="cartHeader">
+                <h2>Shopping Cart</h2>
+                <button class="closeBtn" onclick="toggleCart()">✕</button>
+            </div>
+            <div id="cartItems" class="cartItems"></div>
+            <div class="cartFooter">
+                <button class="submitBtn" onclick="submitOrder()">Place Order</button>
+                <button class="cancelBtn" onclick="toggleCart()">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="cartModal hidden">
+        <div class="cartContent" style="max-width:800px;">
+            <div class="cartHeader">
+                <h2 id="productModalTitle">Product</h2>
+                <button class="closeBtn" onclick="closeProductModal()">✕</button>
+            </div>
+            <div id="productModalContent" style="padding:1.5rem; display:flex; gap:1.5rem; align-items:flex-start;">
+                <!-- populated by JS -->
+            </div>
+            <div style="padding:1rem; border-top:1px solid #e0e0e0; display:flex; gap:1rem;">
+                <button class="submitBtn" id="modalAddBtn">Add to Cart</button>
+                <button class="cancelBtn" onclick="closeProductModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/ladningPage.js"></script>
+</body>
+</html>
